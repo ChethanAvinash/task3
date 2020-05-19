@@ -1,4 +1,4 @@
-from matplotlib import pyplot
+#from matplotlib import pyplot
 from keras.datasets import mnist
 from keras.utils import to_categorical
 from keras.models import Sequential
