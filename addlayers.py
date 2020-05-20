@@ -15,6 +15,6 @@ with open("accuracy.txt","r") as ac:
                 i+=1
             contents[35]=k[-1]
 
-        with open("cnn_updated.py","w") as l:
+        with open("c.py","w") as l:
             l.writelines(contents)
 
