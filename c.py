@@ -7,7 +7,7 @@ from keras.layers import MaxPooling2D
 from keras.layers import Dense
 from keras.layers import Flatten
 from keras.optimizers import SGD
-
+from math import ceil
 (trainX, trainY), (testX, testY) = mnist.load_data()
 trainX = trainX.reshape((trainX.shape[0], 28, 28, 1))[:10000]
 testX = testX.reshape((testX.shape[0], 28, 28, 1))[:2000]
@@ -32,4 +32,4 @@ model.fit(trainX, trainY, epochs=3,validation_data=(testX, testY))
 _,acc=model.evaluate(testX,testY)
 
 with open("/task/accuracy.txt",'w') as f:
-    f.write(str(acc))
+    f.write(str(ceil(acc)))
