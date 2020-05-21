@@ -23,11 +23,17 @@ trainX,testX=train_norm,test_norm
 model = Sequential()
 model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 model.add(MaxPooling2D((2, 2)))
+model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform'))
+model.add(MaxPooling2D((2, 2)))
+model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform'))
+model.add(MaxPooling2D((2, 2)))
 model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dense(128, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 model.compile(optimizer="adam", loss='categorical_crossentropy', metrics=['accuracy'])
 
-model.fit(trainX, trainY, epochs=3,validation_data=(testX, testY))
+model.fit(trainX, trainY, epochs=10,validation_data=(testX, testY))
 
 _,acc=model.evaluate(testX,testY)
 
